@@ -12,10 +12,10 @@ else:
 
 random_number = random.randint(0,top_range)
 
-computer_score = 0
-user_score = 0
+guesses = 0
 
 while True:
+    guesses+=1
     guess = input("Make a guess!!: ")
     if guess.isdigit():
         guess = int(guess)
@@ -24,21 +24,12 @@ while True:
         continue
     if guess==random_number:
         print("You guess it right!!!")
-        user_score+=1
-    else:
-        print("You are wrong!!!")
-        computer_score+=1
-    
-    exit = input("Enter E to exit or any other key to continue: ").lower()
-    if exit=='e':
         break
+    elif guess>random_number:
+        print("You are above the number")
+    else:
+        print("You are below the number")
+    
+print("You got it in ",guesses,"guesses")
 
-print("----------FINAL RESULT----------")
-print("USER SCORE = ",user_score)
-print("COMPUTER SCORE = ",computer_score)
-if user_score > computer_score:
-    print("YOU WON!!!")
-elif user_score < computer_score:
-    print("COMPUTER WON!!!")
-else:
-    print("MATCH DRAW!!!")
+
